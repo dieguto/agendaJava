@@ -14,7 +14,7 @@ function validaUsuario(usuario){
     }
 
     if(usuario.sexo === "Selecione"){
-        erros.push("O sexo é obrigatório.");
+        erros.push("O sexo não foi selecionado.");
     }
 
     if(usuario.senha.length < 8){

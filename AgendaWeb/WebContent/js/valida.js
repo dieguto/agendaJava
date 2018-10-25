@@ -21,10 +21,12 @@ btn.addEventListener("click", function(){
         event.preventDefault();
         for(var i = 0; i < erros.length;i++){
         	var li = document.createElement("li");
+        	ul.classList.add("pt-2");
+        	li.style.color= "red";
         	li.textContent = erros[i];
         	ul.appendChild(li)
         };
     };
     
-   
+    
 });
