@@ -10,11 +10,11 @@ function validaUsuario(usuario){
     }
 
     if(usuario.email.length < 7){
-        erros.push("O e-mail e obrigatório.");
+        erros.push("O e-mail é obrigatório.");
     }
 
-    if(usuario.sexo.length === "Selecione"){
-        erros.push("O sexo e obrigaório.");
+    if(usuario.sexo === "Selecione"){
+        erros.push("O sexo é obrigatório.");
     }
 
     if(usuario.senha.length < 8){
@@ -22,11 +22,11 @@ function validaUsuario(usuario){
     }
     
     if(usuario.confSenha.length < 8){
-        erros.push("A confirmão da senha deve conter pelo menos 8 caracteres.");
+        erros.push("A confirmação da senha deve conter pelo menos 8 caracteres.");
     }
 
     if(usuario.senha != usuario.confSenha){
-        erros.push("As senhas não confirmão.");
+        erros.push("As senhas não confirmam.");
     }
 
     

@@ -16,6 +16,6 @@
 <body>
 	<%= email   %><br><br>
 	<%= nome %><br><br>
-	 <h1>Eu sou um html! È verdade esse bilete</h1>
+	 <h1>Eu sou um html!</h1>
 </body>
 </html>
