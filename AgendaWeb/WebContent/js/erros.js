@@ -2,7 +2,7 @@ function validaUsuario(usuario){
     var erros = [];
 
     if(usuario.nome.length < 5 ){
-        erros.push("O nome deve ter mais de 5 caracteres.");
+        erros.push("O nome deve ter mais de 5 caractéres.");
     }
 
     if(usuario.nascimento.length === 0){
@@ -18,11 +18,11 @@ function validaUsuario(usuario){
     }
 
     if(usuario.senha.length < 8){
-        erros.push("A senha deve conter 8 caracteres.");
+        erros.push("A senha deve conter 8 caractéres.");
     }
     
     if(usuario.confSenha.length < 8){
-        erros.push("A confirmação da senha deve conter pelo menos 8 caracteres.");
+        erros.push("A confirmação da senha deve conter pelo menos 8 caractéres.");
     }
 
     if(usuario.senha != usuario.confSenha){
