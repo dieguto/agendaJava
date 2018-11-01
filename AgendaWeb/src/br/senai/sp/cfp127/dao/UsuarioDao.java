@@ -25,7 +25,8 @@ public class UsuarioDao {
 	
 	// *** MÉTODO PARA GRAVAR O USUÁRIO NO BANCO
 	
-	public void gravar() {
+	public boolean gravar() {
+		
 		String sql= "INSERT INTO tbl_usuario ("
 				+ "nome, email, senha, sexo, dtNascimento)"
 				+ "VALUES (?,?,?,?,?)";
@@ -38,13 +39,16 @@ public class UsuarioDao {
 			stm.setString(4, usuario.getSexo().substring(0, 1));
 			stm.setString(5, usuario.getDtNascimento());
 			stm.execute();
+			return true;
 		} catch(Exception e) {
 			e.printStackTrace();
+			return false;
 		}
 	}
 	
 	public Usuario autenticar(String email, String senha) {
 		this.usuario= new Usuario();
+		
 		
 		String sql = "SELECT * FROM tbl_usuario "
 				+ "WHERE senha= ? AND email = ?";

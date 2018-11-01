@@ -16,6 +16,6 @@
 <body>
 	<%= email   %><br><br>
 	<%= nome %><br><br>
-	 <h1>Eu sou um html!</h1>
+	 <h1>Bem vindo a MATRIX ?!</h1>
 </body>
 </html>

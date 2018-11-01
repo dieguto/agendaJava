@@ -30,6 +30,11 @@ public class UsuarioServlet extends HttpServlet {
 		
 		UsuarioDao dao = new UsuarioDao();
 		dao.setUsuario(u);
+		if(dao.gravar()) {
+			response.sendRedirect("sucesso.html");
+		}else {
+			response.sendRedirect("novo-usuario.html");
+		}
 		dao.gravar();
 
 	}

@@ -28,8 +28,12 @@ public class AutenticaServlet extends HttpServlet {
 		
 		usuario = dao.autenticar(request.getParameter("email"), request.getParameter("senha"));
 		
-		if(usuario != null){
-			System.out.println("Logado com sucesso!!");
+		System.out.println(usuario.getCod());
+		
+		if(usuario.getCod() != 0){
+			response.sendRedirect("Resultado.jsp");
+		}else {
+			response.sendRedirect("Login.html");
 		}
 		
 	}
