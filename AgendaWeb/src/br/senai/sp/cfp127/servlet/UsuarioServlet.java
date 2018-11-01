@@ -35,8 +35,8 @@ public class UsuarioServlet extends HttpServlet {
 		}else {
 			response.sendRedirect("novo-usuario.html");
 		}
-		dao.gravar();
-
+		
+		
 	}
 
 }
