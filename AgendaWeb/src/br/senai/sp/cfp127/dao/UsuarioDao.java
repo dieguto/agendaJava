@@ -1,6 +1,7 @@
 package br.senai.sp.cfp127.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import javax.sql.ConnectionEvent;
 
@@ -9,8 +10,10 @@ import br.senai.sp.cfp127.model.Usuario;
 public class UsuarioDao {
 	
 	private Usuario usuario;
-	private ConnectionEvent con;
+
 	private PreparedStatement stm;
+	
+	private ResultSet rs;
 	
 	public Usuario getUsuario() {
 		return usuario;
@@ -36,9 +39,33 @@ public class UsuarioDao {
 			stm.setString(5, usuario.getDtNascimento());
 			stm.execute();
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	
+	public Usuario autenticar(String email, String senha) {
+		this.usuario= new Usuario();
+		
+		String sql = "SELECT * FROM tbl_usuario "
+				+ "WHERE senha= ? AND email = ?";
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setString(1, senha);
+			stm.setString(2, email);
+			rs = stm.executeQuery();
+			
+			if(rs.next()) {
+				this.usuario.setCod(rs.getInt("cod"));
+				this.usuario.setNome(rs.getString("nome"));
+				this.usuario.setEmail(rs.getString("email"));
+				this.usuario.setSenha(rs.getString("sexo"));
+				this.usuario.setDtNascimento(rs.getString("dtNascimento"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}return this.usuario;
+	}
 	
+
 }

@@ -9,8 +9,8 @@ btn.addEventListener("click", function(){
         nascimento: formulario.querySelector("#txt-nascimento").value,
         sexo: formulario.querySelector("#txt-sexo").value,
         email: formulario.querySelector("#txt-email").value,
-        senha: formulario.querySelector("#senha").value,
-        confSenha: formulario.querySelector("#conf-senha").value
+        senha: formulario.querySelector("#txt-senha1").value,
+        confSenha: formulario.querySelector("#txt-senha2").value
     };
 
     var erros = validaUsuario(usuario);

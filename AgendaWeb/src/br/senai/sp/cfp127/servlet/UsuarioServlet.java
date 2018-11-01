@@ -19,9 +19,9 @@ public class UsuarioServlet extends HttpServlet {
 
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		Usuario u = new Usuario();
+		
 		u.setNome(request.getParameter("txt-nome"));
 		u.setEmail(request.getParameter("txt-email"));
 		u.setSenha(request.getParameter("txt-senha1"));
