@@ -38,36 +38,8 @@
 
 		<div class="row">
 			<div class="col-md-4">
-				<div class="card">
-					<div class="card-header bg-info text-white">
-						<h5>Usuário</h5>
-					</div>
-					<div class="card-body">
-						<p><strong>Nome:</strong><%= usuario.getNome() %></p>
-						<p><strong>Dt.Nasc: </strong><%= usuario.getDtNascimento() %></p>
-						<p><strong>Sexo:</strong><%= usuario.getSexo().equals("M")?"Masculino":"Feminino" %></p>
-					</div>
-
-					<div class="card-footer">
-					<a href="#"><img src="imagens/exit24.png"> Sair do sistema </a>
-					</div>
-
-				</div>
-				<div class="card mt-3">
-					<div class="card-header bg-info text-white">
-						<h5>Cadastros</h5>
-					</div>
-					<div class="card-body">
-					<nav class="nav flex-column">
-						 <a class="nav-link"href="#"> <img src="imagens/home20.png"> Home</a>
-						 <a class="nav-link" href="#"><img src="imagens/contato20.png"> Contatos</a>
-						 <a class="nav-link"href="#"> <img src="imagens/compromissos20.png"> Compromissos</a>
-						 
-					</nav>
-					</div>
-					<div class="card-footer"></div>
-
-				</div>
+				<%@ include file = "painel-usuario.jsp" %>
+				<%@ include file = "menu.html" %>
 			</div>
 
 			<div class="col-md-8">
