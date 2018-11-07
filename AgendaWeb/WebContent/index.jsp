@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+	
+	<%@ page import="br.senai.sp.cfp127.model.Usuario" %>
+	
+	<% 
+	
+	Usuario usuario = new Usuario();
+	usuario = (Usuario) session.getAttribute("usuario");
+	
+	if(usuario == null){
+		response.sendRedirect("Login.html");
+	}else{
+		%>
+		<!DOCTYPE html>
 <html>
 <head>
 
@@ -31,13 +43,13 @@
 						<h5>Usuário</h5>
 					</div>
 					<div class="card-body">
-						<p>Nome: Diego</p>
-						<p>Dt.Nasc:16/06/2000</p>
-						<p>Sexo: Masculino</p>
+						<p><strong>Nome:</strong><%= usuario.getNome() %></p>
+						<p><strong>Dt.Nasc: </strong><%= usuario.getDtNascimento() %></p>
+						<p><strong>Sexo:</strong><%= usuario.getSexo().equals("M")?"Masculino":"Feminino" %></p>
 					</div>
 
 					<div class="card-footer">
-					<a href="#"> Sair do Sistema?! </a>
+					<a href="#"><img src="imagens/exit24.png"> Sair do sistema </a>
 					</div>
 
 				</div>
@@ -47,8 +59,10 @@
 					</div>
 					<div class="card-body">
 					<nav class="nav flex-column">
-						<a class="nav-link" href="#"><img src="imagens/contato20.png"> Contatos</a>
+						 <a class="nav-link"href="#"> <img src="imagens/home20.png"> Home</a>
+						 <a class="nav-link" href="#"><img src="imagens/contato20.png"> Contatos</a>
 						 <a class="nav-link"href="#"> <img src="imagens/compromissos20.png"> Compromissos</a>
+						 
 					</nav>
 					</div>
 					<div class="card-footer"></div>
@@ -104,3 +118,8 @@
 
 </body>
 </html>
+		<% 
+	}
+	
+	%> 
+	

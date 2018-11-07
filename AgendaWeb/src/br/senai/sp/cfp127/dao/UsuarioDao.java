@@ -62,7 +62,7 @@ public class UsuarioDao {
 				this.usuario.setCod(rs.getInt("cod"));
 				this.usuario.setNome(rs.getString("nome"));
 				this.usuario.setEmail(rs.getString("email"));
-				this.usuario.setSenha(rs.getString("sexo"));
+				this.usuario.setSexo(rs.getString("sexo"));
 				this.usuario.setDtNascimento(rs.getString("dtNascimento"));
 			}
 			
