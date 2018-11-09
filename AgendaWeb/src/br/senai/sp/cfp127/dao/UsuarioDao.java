@@ -47,7 +47,7 @@ public class UsuarioDao {
 	}
 public boolean atualizar() {
 		
-		String sql= "UPDATE INTO tbl_usuario SET "
+		String sql= "UPDATE tbl_usuario SET "
 				+ "nome = ?, "
 				+ "email = ?, "
 				+ "senha = ?, "

@@ -132,7 +132,8 @@
 
 
 	</div>
-
+	<script type="text/javascript" src="./js/valida.js"></script>
+	<script type="text/javascript" src="./js/erros.js"></script>
 </body>
 </html>
 		<% 
