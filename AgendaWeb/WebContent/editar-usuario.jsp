@@ -113,7 +113,7 @@
 							</div>
 							<div class="card-footer">
 								<button class="btn btn-success" id="bt-Criar">Atualizar Dados</button>
-								<a href="Login.html" class="btn btn-danger">Cancelar</a>
+								<a href="index.jsp" class="btn btn-danger">Cancelar</a>
 							</div>
 
 
