@@ -15,7 +15,7 @@ public class ContatoDao {
 	
 	public ArrayList<Contato> getContatos(int codUsuario){
 		ArrayList<Contato> contatos = new ArrayList<>();
-		contatos = null;
+		
 		String sql = "SELECT * FROM tbl_contato "
 				+ "WHERE cod_usuario = ?";
 		

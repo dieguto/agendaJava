@@ -52,16 +52,20 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-header bg-info text-white">
-						<h5>Bem-vindo</h5>
+						<div class="row">
+							<div class="col-md-9"><h5>Meus Contatos</h5></div>
+							<div class="col-md-3"><a href="#" class="text-white btn">Novo Contato</a></div>
+						</div>
 					</div>
 					<div class="card-body">
 						<table class="table table-hover table-dark">
+						
 							<thead>
 								<tr>
 									<th scope="col">Cód.</th>
 									<th scope="col">Nome</th>
 									<th scope="col">Email</th>
-									
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -69,9 +73,10 @@
 							
 							
 								<tr>
-									<td><%= c.getCodContato() %></td>
-									<td><%= c.getNome() %></td>
-									<td><%= c.getEmail() %></td>
+									<td><%= c.getCodContato()%></td>
+									<td><%= c.getNome()%></td>
+									<td><%= c.getEmail()%></td>
+									<td><a href="ExcluirContatoServlet&cod_contato=<%= c.getCodContato()%>"><img src="imagens/trash24.png"></a></td>
 								</tr>
 								
 								<% } %>
@@ -92,6 +97,5 @@
 </html>
 		<% 
 	}
-	
 	%> 
 	

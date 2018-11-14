@@ -13,7 +13,7 @@ public class Conexao {
 			String user = "inf2ta";
 			String pass = "123";
 			con = DriverManager.getConnection(dbURL, user, pass);
-			System.out.println("Banco conectado com sucesso!!");
+			
 		}catch(Exception e) {
 			System.out.println("Ocorreu um erro na conexão!!");
 			e.printStackTrace();
