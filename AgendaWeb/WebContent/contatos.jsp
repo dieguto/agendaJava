@@ -24,6 +24,7 @@
 <head>
 
 <title>Criar novo usuario</title>
+
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
 <meta charset="UTF-8">
 </head>
@@ -54,7 +55,7 @@
 					<div class="card-header bg-info text-white">
 						<div class="row">
 							<div class="col-md-9"><h5>Meus Contatos</h5></div>
-							<div class="col-md-3"><a href="#" class="text-white btn">Novo Contato</a></div>
+							<div class="col-md-3"><a href="NovoContato.jsp" class="text-white btn">Novo Contato</a></div>
 						</div>
 					</div>
 					<div class="card-body">
@@ -74,9 +75,12 @@
 							
 								<tr>
 									<td><%= c.getCodContato()%></td>
-									<td><%= c.getNome()%></td>
+									<td><a href="ExibirContatoServlet&cod_contato=<%= c.getCodContato()%>"><%= c.getNome()%></a></td>
 									<td><%= c.getEmail()%></td>
-									<td><a href="ExcluirContatoServlet&cod_contato=<%= c.getCodContato()%>"><img src="imagens/trash24.png"></a></td>
+									<td>
+										<a href="ExcluirContatoServlet&cod_contato=<%= c.getCodContato()%>"><img src="imagens/trash24.png">
+										</a>
+									</td>
 								</tr>
 								
 								<% } %>

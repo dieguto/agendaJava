@@ -17,7 +17,7 @@ public class ContatoDao {
 		ArrayList<Contato> contatos = new ArrayList<>();
 		
 		String sql = "SELECT * FROM tbl_contato "
-				+ "WHERE cod_usuario = ?";
+				+ "WHERE cod_usuario = ? ORDER BY nome";
 		
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
@@ -40,4 +40,33 @@ public class ContatoDao {
 		
 		return contatos;
 	}
+	
+	
+	public boolean gravar(Contato contato){
+		String sql= "INSERT INTO tbl_contato "
+				+ "(cod_usuario, nome, email, telefone, endereco)"
+				+ "VALUES (?,?,?,?,?)";
+				
+				
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setInt(1, contato.getUsuario().getCod());
+			stm.setString(2, contato.getNome());
+			stm.setString(3, contato.getEmail());
+			stm.setString(4, contato.getTelefone());
+			stm.setString(5, contato.getEndereco());
+			stm.execute();
+			
+			return true;
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+//	public boolean atualizar(Contato contato) {
+//		
+//	}
 }
+
