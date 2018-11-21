@@ -10,6 +10,7 @@
 	
 	Contato contato = new Contato();
 	contato = (Contato) session.getAttribute("contato");
+	session.removeAttribute("contato");
 	
 	if(usuario == null){
 		response.sendRedirect("Login.html");
