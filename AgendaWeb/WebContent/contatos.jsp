@@ -75,10 +75,10 @@
 							
 								<tr>
 									<td><%= c.getCodContato()%></td>
-									<td><a href="ExibirContatoServlet&cod_contato=<%= c.getCodContato()%>"><%= c.getNome()%></a></td>
+									<td><a href="ExibirContatoServlet?cod_contato=<%= c.getCodContato()%>"><%= c.getNome()%></a></td>
 									<td><%= c.getEmail()%></td>
 									<td>
-										<a href="ExcluirContatoServlet&cod_contato=<%= c.getCodContato()%>"><img src="imagens/trash24.png">
+										<a href="ExcluirContatoServlet?cod_contato=<%= c.getCodContato()%>"><img src="imagens/trash24.png">
 										</a>
 									</td>
 								</tr>
