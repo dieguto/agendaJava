@@ -51,7 +51,7 @@
 					<div class="card-header bg-info text-white">
 						<h5><img src="imagens/edituser48.png"> Alterar dados do Contato</h5>
 					</div>
-					<form id="usuario" action="CadastrarContatoServlet" method="post">
+					<form id="usuario" action="EditarContatoServlet" method="get">
 					
 					
 					<div class="card-body">
@@ -67,7 +67,7 @@
 						<div class="row form-group">
 							
 							<div class="col-md-6">
-								<input type="text" name="txt-cod" hidden="hidden" value="<%= contato.getCodContato()%>"> 
+								<input type="text" name="txt-contato" id="txt-contato" hidden="hidden" value="<%= contato.getCodContato()%>"> 
 								<label for="txt-nome">Nome:</label>
 								<input class="form-control" type="text" name="txt-nome" id="txt-nome" value="<%= contato.getNome() %>" placeholder="Digite seu nome">
 							</div>
@@ -91,7 +91,7 @@
 					</div>
 					
 					<div class="card-footer">
-						<button class="btn btn-success" id="bt-Cadastrar">Atualizar Contato</button>
+						<button class="btn btn-success" id="bt-Atualizar">Atualizar Contato</button>
 						<a href="contatos.jsp" class="btn btn-danger">Cancelar</a>
 					</div>
 					</form>

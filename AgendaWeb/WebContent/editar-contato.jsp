@@ -87,7 +87,7 @@
 					</div>
 					
 					<div class="card-footer">
-						<button class="btn btn-success" id="bt-Cadastrar">Cadastrar Contato</button>
+						<button class="btn btn-success" id="bt-Atualizar">Cadastrar Contato</button>
 						<a href="contatos.jsp" class="btn btn-danger">Cancelar</a>
 					</div>
 					</form>

@@ -13,6 +13,17 @@ public class ContatoDao {
 	private ResultSet rs;
 	
 	
+	
+	public Contato getContato() {
+		return contato;
+	}
+
+
+	public void setContato(Contato contato) {
+		this.contato = contato;
+	}
+
+
 	public ArrayList<Contato> getContatos(int codUsuario){
 		ArrayList<Contato> contatos = new ArrayList<>();
 		
@@ -69,9 +80,9 @@ public class ContatoDao {
 		String sql= "UPDATE tbl_contato SET "
 				+ "nome = ?, "
 				+ "email = ?, "
-				+ "telefone = ? "
+				+ "telefone = ?, "
 				+ "endereco = ? "
-				+ "WHERE cod = ?";
+				+ "WHERE cod_contato = ?";
 		
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
@@ -79,9 +90,25 @@ public class ContatoDao {
 			stm.setString(2, contato.getEmail());
 			stm.setString(3, contato.getTelefone());
 			stm.setString(4, contato.getEndereco());
+			stm.setInt(5, contato.getCodContato());
 			stm.execute();
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			
+		}
+	}
+	
+	public boolean deletar(int codContato) {
+		String sql = "DELETE FROM tbl_contato WHERE cod_contato = ?";
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setInt(1, codContato);
+			stm.execute();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

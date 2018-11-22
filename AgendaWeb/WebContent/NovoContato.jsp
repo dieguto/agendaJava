@@ -63,7 +63,7 @@
 						<div class="row form-group">
 							
 							<div class="col-md-6">
-								<input type="text" name="txt-cod" hidden="hidden"> 
+								<input type="text" name="txt-contato" id="txt-contato" hidden="hidden"> 
 								<label for="txt-nome">Nome:</label>
 								<input class="form-control" type="text" name="txt-nome" id="txt-nome" placeholder="Digite seu nome">
 							</div>
