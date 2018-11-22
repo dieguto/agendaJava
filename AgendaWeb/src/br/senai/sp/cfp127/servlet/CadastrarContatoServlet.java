@@ -40,21 +40,21 @@ public class CadastrarContatoServlet extends HttpServlet {
 		ContatoDao dao = new ContatoDao();
 		dao.setContato(contato);
 		
-		if (request.getParameter("txt-contato").length() > 0 ) {
-			contato.setCodContato(Integer.parseInt(request.getParameter("txt-contato")));
-		}
+//		if (request.getParameter("txt-contato").length() > 0 ) {
+//			contato.setCodContato(Integer.parseInt(request.getParameter("txt-contato")));
+//		}
 		
-		if(contato.getCodContato() == 0) {
+//		if(contato.getCodContato() == 0) {
 			if(dao.gravar(contato)) {
 				response.sendRedirect("contatos.jsp");
 			}else {
 				response.sendRedirect("#");
 			}
-		} else if(dao.atualizar(contato)){
-			HttpSession sessao = request.getSession();
-			sessao.setAttribute("contato", contato);
-			response.sendRedirect("exibir_contato.jsp");
-		}
+//		} else if(dao.atualizar(contato)){
+//			HttpSession sessao = request.getSession();
+//			sessao.setAttribute("contato", contato);
+//			response.sendRedirect("exibir_contato.jsp");
+//		}
 	}
 
 }

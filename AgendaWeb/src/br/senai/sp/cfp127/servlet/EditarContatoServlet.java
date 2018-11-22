@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.senai.sp.cfp127.dao.ContatoDao;
 import br.senai.sp.cfp127.model.Contato;
@@ -36,7 +37,10 @@ public class EditarContatoServlet extends HttpServlet {
 		ContatoDao dao = new ContatoDao();
 		dao.setContato(contato);
 		if(dao.atualizar(contato)) {
+			HttpSession sessao = request.getSession();
+			sessao.setAttribute("contato", contato);
 			response.sendRedirect("contatos.jsp");
+			
 		}else {
 			response.sendRedirect("exibir_contato.jsp");
 		} 
