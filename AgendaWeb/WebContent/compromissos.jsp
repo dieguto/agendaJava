@@ -13,7 +13,7 @@
 	CompromissoDao dao = new CompromissoDao();
 	ArrayList<Compromisso> compromisso = new ArrayList<>();
 	
-	compromisso = dao.getCompromisso(usuario.getCod());
+	compromisso = dao.getCompromissos(usuario.getCod());
 	
 	if(usuario == null){
 		response.sendRedirect("Login.html");
@@ -64,13 +64,26 @@
 							<thead>
 								<tr>
 									<th scope="col">Cód.</th>
-									<th scope="col">Nome</th>
-									<th scope="col">Email</th>
+									<th scope="col">Compromisso</th>
+									<th scope="col">Data</th>
 									<th></th>
 								</tr>
 							</thead>
 							<tbody>
+								<% for (Compromisso c : compromisso){ %>
 							
+							
+								<tr>
+									<td><%= c.getCodCompromisso()%></td>
+									<td><a href="ExibirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><%= c.getTitulo()%></a></td>
+									<td><%= c.getData()%></td>
+									<td>
+										<a href="ExcluirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><img src="imagens/trash24.png">
+										</a>
+									</td>
+								</tr>
+								
+								<% } %>
 							</tbody>
 						</table>
 					</div>

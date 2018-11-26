@@ -27,7 +27,7 @@ public class ExibirContatoServlet extends HttpServlet {
 		ContatoDao dao = new ContatoDao();
 		contato = dao.getContato(codContato);
 		
-		
+		System.out.println();
 		
 		request.getSession().setAttribute("contato", contato);
 		response.sendRedirect("exibir_contato.jsp");
