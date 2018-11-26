@@ -25,7 +25,6 @@ public class CadastrarContatoServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Usuario usuario = new Usuario();
 		

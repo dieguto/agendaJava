@@ -21,8 +21,6 @@ public class AutenticaServlet extends HttpServlet {
        
     }
 
-	
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UsuarioDao dao = new UsuarioDao();
 		Usuario usuario = new Usuario();
