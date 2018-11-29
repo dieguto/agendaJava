@@ -55,7 +55,7 @@
 					<div class="card-header bg-info text-white">
 						<div class="row">
 							<div class="col-md-9"><h5>Meus Compromissos</h5></div>
-							<div class="col-md-3"><a href="NovoContato.jsp" class="text-white btn">Novo Compromisso</a></div>
+							<div class="col-md-3"><a href="novoCompromisso.jsp" class="text-white btn">Novo Compromisso</a></div>
 						</div>
 					</div>
 					<div class="card-body">

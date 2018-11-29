@@ -59,7 +59,7 @@
 						</div>
 					</div>
 					<div class="card-body">
-						<table class="table table-hover table-dark">
+						<table class="table table-sm table-hover table-dark">
 						
 							<thead>
 								<tr>
@@ -72,9 +72,12 @@
 							<tbody>
 							<% for (Contato c : contatos){ %>
 							
-							
+							<!-- 
+								String.format formata a quantidade de caracteres que você deseja ter
+								 
+							 -->
 								<tr>
-									<td><%= c.getCodContato()%></td>
+									<td><%= String.format("%04d", c.getCodContato()) %></td>
 									<td><a href="ExibirContatoServlet?cod_contato=<%= c.getCodContato()%>"><%= c.getNome()%></a></td>
 									<td><%= c.getEmail()%></td>
 									<td>

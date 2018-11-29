@@ -33,9 +33,9 @@ public class EditarContatoServlet extends HttpServlet {
 		contato.setEmail(request.getParameter("txt-email"));
 		contato.setTelefone(request.getParameter("txt-telefone"));
 		contato.setEndereco(request.getParameter("txt-endereco"));
-		System.out.println(contato.getCodContato());
 		ContatoDao dao = new ContatoDao();
 		dao.setContato(contato);
+		
 		if(dao.atualizar(contato)) {
 			HttpSession sessao = request.getSession();
 			sessao.setAttribute("contato", contato);

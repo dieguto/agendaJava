@@ -89,14 +89,20 @@ public class CompromissoDao {
 		
 		public boolean gravar(Compromisso compromisso){
 			String sql= "INSERT INTO tbl_compromisso "
-					+ "(cod_usuario, nome, email, telefone, endereco)"
-					+ "VALUES (?,?,?,?,?)";
+					+ "(cod_usuario, titulo, data, horaInicio, horaFim, descricao, prioridade, status) "
+					+ "VALUES (?,?,?,?,?,?,?,?)";
 					
 					
 			try {
 				stm = Conexao.getConexao().prepareStatement(sql);
 				stm.setInt(1, compromisso.getUsuario().getCod());
-				
+				stm.setString(2, compromisso.getTitulo());
+				stm.setString(3, compromisso.getData());
+				stm.setString(4, compromisso.getHoraInicio());
+				stm.setString(5, compromisso.getHoraFim());
+				stm.setString(6, compromisso.getDescricao());
+				stm.setInt(7, Integer.parseInt(compromisso.getPrioridade()));
+				stm.setInt(8, Integer.parseInt(compromisso.getStatus()));
 				stm.execute();
 				
 				return true;
@@ -107,21 +113,28 @@ public class CompromissoDao {
 			}
 		}
 		
-		public boolean atualizar(Contato contato) {
-			String sql= "UPDATE tbl_contato SET "
-					+ "nome = ?, "
-					+ "email = ?, "
-					+ "telefone = ?, "
-					+ "endereco = ? "
-					+ "WHERE cod_contato = ?";
+	public boolean atualizar(Compromisso compromisso) {
+		String sql= "UPDATE tbl_compromisso SET "
+					+ "titulo = ?, "
+					+ "data = ?, "
+					+ "horaInicio = ?, "
+					+ "horaFim = ?, "
+					+ "descricao = ?, "
+					+ "prioridade = ?, "
+					+ "status = ? "
+					+ "WHERE cod_compromisso = ?";
 			
 			try {
 				stm = Conexao.getConexao().prepareStatement(sql);
-				stm.setString(1, contato.getNome());
-				stm.setString(2, contato.getEmail());
-				stm.setString(3, contato.getTelefone());
-				stm.setString(4, contato.getEndereco());
-				stm.setInt(5, contato.getCodContato());
+//				stm.setInt(1, compromisso.getUsuario().getCod());
+				stm.setString(1, compromisso.getTitulo());
+				stm.setString(2, compromisso.getData());
+				stm.setString(3, compromisso.getHoraInicio());
+				stm.setString(4, compromisso.getHoraFim());
+				stm.setString(5, compromisso.getDescricao());
+				stm.setInt(6, Integer.parseInt(compromisso.getPrioridade()));
+				stm.setInt(7, Integer.parseInt(compromisso.getStatus()));
+				stm.setInt(8, compromisso.getCodCompromisso());
 				stm.execute();
 				return true;
 			} catch (Exception e) {
@@ -131,11 +144,11 @@ public class CompromissoDao {
 			}
 		}
 		
-		public boolean deletar(int codContato) {
-			String sql = "DELETE FROM tbl_contato WHERE cod_contato = ?";
+		public boolean deletar(int codCompromisso) {
+			String sql = "DELETE FROM tbl_compromisso WHERE cod_compromisso = ?";
 			try {
 				stm = Conexao.getConexao().prepareStatement(sql);
-				stm.setInt(1, codContato);
+				stm.setInt(1, codCompromisso);
 				stm.execute();
 				return true;
 			} catch (Exception e) {

@@ -49,9 +49,9 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-header bg-info text-white">
-						<h5><img src="imagens/edituser48.png"> Alterar dados do Contato</h5>
+						<h5><img src="imagens/edituser48.png"> Cadastrar Compromisso</h5>
 					</div>
-					<form id="usuario" action="EditarCompromissoServlet" method="get">
+					<form id="usuario" action="CadastrarCompromissoServlet" method="post">
 					
 					
 					<div class="card-body">
@@ -69,13 +69,13 @@
 						<div class="row form-group">
 							
 							<div class="col-md-8">
-								<input type="text" name="cod_compromisso" id="cod_compromisso" hidden="hidden" value="<%= compromisso.getCodCompromisso() %>"  > 
+								<input type="text" name="txt-compromisso" id="txt-compromisso" hidden="hidden" > 
 								<label for="txt-titulo" >Titulo</label>
-								<input class="form-control" type="text" name="txt-titulo" id="txt-titulo" value="<%= compromisso.getTitulo() %>" placeholder="Ex:Mercado, Pizzaria, Aniversario da afilhada">
+								<input class="form-control" type="text" name="txt-titulo" id="txt-titulo" placeholder="Ex:Mercado, Pizzaria, Aniversario da afilhada">
 							</div>
 							<div class="col-md-4">
 								<label for="txt-data">Data:</label>
-								<input class="form-control" type="date" name="txt-data" id="txt-data" value="<%= compromisso.getData() %>">
+								<input class="form-control" type="date" name="txt-data" id="txt-data" >
 							</div>
 							
 				
@@ -83,61 +83,30 @@
 						<div class="row form-group">
 							<div class="col-md-3">
 								<label for="txt-horaInicio">horaInicio:</label>
-								<input class="form-control" type="time" name="txt-horaInicio" id="txt-horaInicio" value="<%= compromisso.getHoraInicio() %>" >
+								<input class="form-control" type="time" name="txt-horaInicio" id="txt-horaInicio"  >
 							</div>
 							<div class="col-md-3">
 								<label for="txt-horaFim">horaFim:</label>
-								<input class="form-control" type="time" name="txt-horaFim" id="txt-horaFim" value="<%= compromisso.getHoraFim() %>">
+								<input class="form-control" type="time" name="txt-horaFim" id="txt-horaFim" >
 							</div>
 							<div class="col-md-2">
 								<label for="txt-prioridade">Prioridade:</label>
-								<select class="form-control" name="txt-prioridade" id="txt-prioridade" value="<%= compromisso.getPrioridade() %>" >
-									
-									<% 
-										if(Integer.parseInt(compromisso.getPrioridade()) == 0){ 
-										%>
-										<option value="0" selected>
-											Alta
-										</option>
-										<option value="1">
-											Média
-										</option>
-										<option value="2">
-											Baixa
-										</option>
-									<%}else if(Integer.parseInt(compromisso.getPrioridade()) == 1){ 
-										%>
-										<option value="0">
-											Alta
-										</option>
-										<option value="1" selected>
-											Média
-										</option>
-										<option value="2">
-											Baixa
-										</option> 
-									
-									<%}else if(Integer.parseInt(compromisso.getPrioridade()) == 2){ 
-										%>
-										<option value="0">
-											Alta
-										</option>
-										<option value="1">
-											Média
-										</option>
-										<option value="2" selected>
-											Baixa
-										</option> 
-										
-										
-										<% } %>
-									
+								<select class="form-control" name="txt-prioridade" id="txt-prioridade">
+									<option value="0">
+										Alta
+									</option>
+									<option value="1">
+										Média
+									</option>
+									<option value="2">
+										Baixa
+									</option>
 									
 								</select>
 							</div>
 							<div class="col-md-4">
 								<label for="txt-status">Status:</label>
-								<select class="form-control" name="txt-status" id="txt-status" value="<%= compromisso.getStatus() %>" >
+								<select class="form-control" name="txt-status" id="txt-status" >
 									<option value="0">
 										Em andamento
 									</option>
@@ -158,14 +127,14 @@
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="txt-descricao">Descrição:</label>
-								<textarea class="form-control h-75" name="txt-descricao" id="txt-descricao" ><%= compromisso.getDescricao() %> </textarea>
+								<textarea class="form-control h-75" name="txt-descricao" id="txt-descricao" > </textarea>
 							</div>
 							
 						</div>
 					</div>
 					
 					<div class="card-footer">
-						<button class="btn btn-success" id="bt-Atualizar">Atualizar Compromisso</button>
+						<button class="btn btn-success" id="bt-Atualizar">Cadastrar Compromisso</button>
 						<a href="compromissos.jsp" class="btn btn-danger">Cancelar</a>
 					</div>
 					</form>
