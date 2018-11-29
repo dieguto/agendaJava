@@ -138,6 +138,8 @@
 							<div class="col-md-4">
 								<label for="txt-status">Status:</label>
 								<select class="form-control" name="txt-status" id="txt-status" value="<%= compromisso.getStatus() %>" >
+									<!-- Fazer os Status e Deletar  -->
+									
 									<option value="0">
 										Em andamento
 									</option>
