@@ -41,8 +41,10 @@ public class UsuarioDao {
 			stm.execute();
 			return true;
 		} catch(Exception e) {
-			e.printStackTrace();
+			e.printStackTrace();			
 			return false;
+		} finally {
+			Conexao.fecharConexao();
 		}
 	}
 public boolean atualizar() {
@@ -64,10 +66,14 @@ public boolean atualizar() {
 			stm.setString(5, usuario.getDtNascimento());
 			stm.setInt(6, usuario.getCod());
 			stm.execute();
+			Conexao.fecharConexao();
 			return true;
 		} catch(Exception e) {
 			e.printStackTrace();
+			Conexao.fecharConexao();
 			return false;
+		} finally {
+			Conexao.fecharConexao();
 		}
 	}
 	
@@ -93,6 +99,8 @@ public boolean atualizar() {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			Conexao.fecharConexao();
 		}return this.usuario;
 	}
 	

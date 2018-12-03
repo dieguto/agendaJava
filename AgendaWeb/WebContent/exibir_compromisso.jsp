@@ -140,15 +140,47 @@
 								<select class="form-control" name="txt-status" id="txt-status" value="<%= compromisso.getStatus() %>" >
 									<!-- Fazer os Status e Deletar  -->
 									
-									<option value="0">
-										Em andamento
-									</option>
-									<option value="1">
-										Cancelado
-									</option>
-									<option value="2">
-										Concluido
-									</option>
+									
+								
+									<% 
+										if(Integer.parseInt(compromisso.getStatus()) == 0){ 
+										%>
+										<option value="0" selected>
+											Em andamento
+										</option>
+										<option value="1">
+											Cancelado
+										</option>
+										<option value="2">
+											Concluido
+										</option>
+									<%}else if(Integer.parseInt(compromisso.getStatus()) == 1){ 
+										%>
+										<option value="0">
+											Em andamento
+										</option>
+										<option value="1" selected>
+											Cancelado
+										</option>
+										<option value="2">
+											Concluido
+										</option> 
+									
+									<%}else if(Integer.parseInt(compromisso.getStatus()) == 2){ 
+										%>
+										<option value="0">
+											Em andamento
+										</option>
+										<option value="1">
+											Cancelado
+										</option>
+										<option value="2" selected>
+											Concluido
+										</option> 
+										
+										
+										<% } %>
+									
 									
 								</select>
 								

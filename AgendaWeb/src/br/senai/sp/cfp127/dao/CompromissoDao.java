@@ -23,15 +23,17 @@ public class CompromissoDao {
 		this.compromisso = compromisso;
 	}
 	
-	public ArrayList<Compromisso> getCompromissos(int codUsuario){
+	public ArrayList<Compromisso> getCompromissos(int codUsuario, int status){
 		ArrayList<Compromisso> compromisso = new ArrayList<>();
 		
 		String sql = "SELECT * FROM tbl_compromisso "
-				+ "WHERE cod_usuario = ? ";
+				+ "WHERE cod_usuario = ? and status=?";
 		
 		try {
 			stm = Conexao.getConexao().prepareStatement(sql);
 			stm.setInt(1, codUsuario);
+			stm.setInt(2, status);
+			
 			rs = stm.executeQuery();
 			
 			while (rs.next()) {
@@ -44,13 +46,15 @@ public class CompromissoDao {
 				this.compromisso.setDescricao(rs.getString("descricao"));
 				this.compromisso.setPrioridade(rs.getString("prioridade"));
 				this.compromisso.setStatus(rs.getString("status"));
-				;
+				
 				compromisso.add(this.compromisso);
 			}
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			Conexao.fecharConexao();
+		}
 		
 		return compromisso;
 	}
@@ -82,7 +86,9 @@ public class CompromissoDao {
 			
 		}catch (Exception e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			Conexao.fecharConexao();
+		}
 		
 		return compromisso;
 	}
@@ -110,6 +116,8 @@ public class CompromissoDao {
 			} catch(Exception e) {
 				e.printStackTrace();
 				return false;
+			} finally {
+				Conexao.fecharConexao();
 			}
 		}
 		
@@ -141,6 +149,8 @@ public class CompromissoDao {
 				e.printStackTrace();
 				return false;
 				
+			} finally {
+				Conexao.fecharConexao();
 			}
 		}
 		
@@ -154,6 +164,8 @@ public class CompromissoDao {
 			} catch (Exception e) {
 				e.printStackTrace();
 				return false;
+			} finally {
+				Conexao.fecharConexao();
 			}
 		}
 }

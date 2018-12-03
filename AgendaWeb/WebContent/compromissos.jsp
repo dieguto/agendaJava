@@ -5,7 +5,14 @@
 	
 	<%@ page import="br.senai.sp.cfp127.model.Usuario" %>
 	<%@ page import="br.senai.sp.cfp127.model.Compromisso" %>
+	<%@ page import="br.senai.sp.cfp127.util.FormataData" %>
 	<% 
+	
+	int status = 0;
+	
+	if (request.getParameter("txt-status") != null){
+		status = Integer.parseInt(request.getParameter("txt-status"));
+	}
 	
 	Usuario usuario = new Usuario();
 	usuario = (Usuario) session.getAttribute("usuario");
@@ -13,7 +20,7 @@
 	CompromissoDao dao = new CompromissoDao();
 	ArrayList<Compromisso> compromisso = new ArrayList<>();
 	
-	compromisso = dao.getCompromissos(usuario.getCod());
+	compromisso = dao.getCompromissos(usuario.getCod(), status);
 	
 	if(usuario == null){
 		response.sendRedirect("Login.html");
@@ -59,13 +66,32 @@
 						</div>
 					</div>
 					<div class="card-body">
+						<div class="row form-group">
+							<div class="col-md-4">
+								<label for="status">Status:</label>
+								<select class="form-control" name="txt-status" id="txt-status" onchange="myscript()">
+									<option value="0" <%= status == 0 ? "selected" : "" %>>
+										Em andamento
+									</option>
+									<option value="1" <%= status == 1 ? "selected" : "" %>>
+										Cancelado
+									</option>
+									<option value="2" <%= status == 2 ? "selected" : "" %>>
+										Concluido
+									</option>
+									
+								</select>
+								
+							</div>
+						</div>
 						<table class="table table-hover table-dark">
 						
 							<thead>
 								<tr>
 									<th scope="col">Cód.</th>
 									<th scope="col">Compromisso</th>
-									<th scope="col">Data</th>
+									<th scope="col">Data</th>															
+									<th></th>
 									<th></th>
 								</tr>
 							</thead>
@@ -76,11 +102,16 @@
 								<tr>
 									<td><%= c.getCodCompromisso()%></td>
 									<td><a href="ExibirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><%= c.getTitulo()%></a></td>
-									<td><%= c.getData()%></td>
+									<td><%= FormataData.dataPt(c.getData()) %></td>
+									<td>
+										<a href="ExcluirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><img src="imagens/confirm24.png">
+										</a>
+									</td>
 									<td>
 										<a href="ExcluirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><img src="imagens/trash24.png">
 										</a>
 									</td>
+									
 								</tr>
 								
 								<% } %>
@@ -96,7 +127,25 @@
 
 
 	</div>
-
+	<script> 
+		function myscript(){
+		    
+		    var status = document.querySelector("#txt-status");
+		    
+		    if (status.value == 0){
+		        window.location.href="compromissos.jsp?txt-status=0";
+		    }
+		    
+		    if (status.value == 1){
+		        window.location.href="compromissos.jsp?txt-status=1";
+		    }
+		    
+		    if (status.value == 2){
+		        window.location.href="compromissos.jsp?txt-status=2";
+		    }
+		}
+		
+	</script>
 </body>
 </html>
 		<% 

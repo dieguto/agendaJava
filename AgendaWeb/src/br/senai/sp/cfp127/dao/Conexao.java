@@ -2,6 +2,7 @@ package br.senai.sp.cfp127.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexao {
 	private static Connection con;
@@ -17,7 +18,16 @@ public class Conexao {
 		}catch(Exception e) {
 			System.out.println("Ocorreu um erro na conexão!!");
 			e.printStackTrace();
-		}
+		} 
 		return con;
+	}
+	
+	public static void fecharConexao() {
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
 	}
 }
