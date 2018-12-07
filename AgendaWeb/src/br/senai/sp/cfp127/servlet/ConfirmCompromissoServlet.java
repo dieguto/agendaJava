@@ -27,21 +27,16 @@ public class ConfirmCompromissoServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int codCompromisso = Integer.parseInt(request.getParameter("cod_compromisso"));
-		
-		Compromisso compromisso = new Compromisso();
-		compromisso.setStatus(request.getParameter("txt-status"));
-		compromisso.setCodCompromisso(codCompromisso);
+		int status = Integer.parseInt(request.getParameter("txt-status"));
 		
 		CompromissoDao dao = new CompromissoDao();
-		dao.setCompromisso(compromisso);
 		
 		
-		if(dao.atualizar(compromisso)) {
-			HttpSession sessao = request.getSession();
-			sessao.setAttribute("compromisso", compromisso);
+		if(dao.atualizarStatus(status, codCompromisso)) {
 			response.sendRedirect("compromissos.jsp");
 		}else {
 			response.sendRedirect("#");
+			System.out.println("Não deu certo, concerte o código");
 		}
 	}
 	

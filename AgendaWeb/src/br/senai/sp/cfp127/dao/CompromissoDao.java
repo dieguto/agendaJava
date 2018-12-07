@@ -168,4 +168,23 @@ public class CompromissoDao {
 				Conexao.fecharConexao();
 			}
 		}
+		
+		// realizar a atualização do status do compromisso
+		
+		public boolean atualizarStatus(int status, int codCompromisso) {
+			String sql = "UPDATE tbl_compromisso SET status = ? WHERE cod_compromisso = ?";
+			try {
+				stm = Conexao.getConexao().prepareStatement(sql);
+				stm.setInt(1, status);
+				stm.setInt(2, codCompromisso);
+				stm.execute();
+				return true;
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				return false;
+			} finally {
+				Conexao.fecharConexao();
+			}
+		}
 }
