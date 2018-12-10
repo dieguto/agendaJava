@@ -14,12 +14,12 @@ import br.senai.sp.cfp127.model.Compromisso;
 /**
  * Servlet implementation class ConfirmCompromissoServlet
  */
-@WebServlet("/ConfirmCompromissoServlet")
-public class ConfirmCompromissoServlet extends HttpServlet {
+@WebServlet("/MudarStatusServlet")
+public class MudarStatusServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public ConfirmCompromissoServlet() {
+    public MudarStatusServlet() {
         super();
         
     }
@@ -30,7 +30,6 @@ public class ConfirmCompromissoServlet extends HttpServlet {
 		int status = Integer.parseInt(request.getParameter("txt-status"));
 		
 		CompromissoDao dao = new CompromissoDao();
-		
 		
 		if(dao.atualizarStatus(status, codCompromisso)) {
 			response.sendRedirect("compromissos.jsp");

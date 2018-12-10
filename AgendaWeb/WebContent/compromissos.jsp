@@ -99,22 +99,36 @@
 							<tbody>
 								<% for (Compromisso c : compromisso){ %>
 							
-							
+								
 								<tr>
 									<td><%= c.getCodCompromisso()%></td>
 									<td><a href="ExibirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><%= c.getTitulo()%></a></td>
 									<td><%= FormataData.dataPt(c.getData()) %></td>
+									
+									
+									<% if(Integer.parseInt(c.getStatus()) == 0){ %>
 									<td>
-										<a href="ExcluirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><img src="imagens/confirm24.png">
+										<a href="MudarStatusServlet?cod_compromisso=<%= c.getCodCompromisso()%>&txt-status=2"><img src="imagens/confirm24.png">
 										</a>
 									</td>
 									<td>
-										<a href="ExcluirCompromissoServlet?cod_compromisso=<%= c.getCodCompromisso()%>"><img src="imagens/trash24.png">
+										<a href="MudarStatusServlet?cod_compromisso=<%= c.getCodCompromisso()%>&txt-status=1"><img src="imagens/trash24.png">
+										</a>
+									</td>
+									<% } %>
+									<% if(Integer.parseInt(c.getStatus()) == 1 || Integer.parseInt(c.getStatus()) == 2) { %>
+									<td>
+										<a href="MudarStatusServlet?cod_compromisso=<%= c.getCodCompromisso()%>&txt-status=0"><img src="imagens/return24.png">
 										</a>
 									</td>
 									
+									<% } %>	
+									
 								</tr>
 								
+								
+										
+									
 								<% } %>
 							</tbody>
 						</table>
