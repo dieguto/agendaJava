@@ -13,7 +13,7 @@
 	CompromissoDao dao = new CompromissoDao();
 	ArrayList<Compromisso> compromisso = new ArrayList<>();
 	
-	//compromisso = dao.getCompromissos(usuario.getCod(), status);
+	compromisso = dao.getCompromissoData(usuario.getCod());
 	
 	
 	if(usuario == null){
@@ -48,30 +48,35 @@
 	<div class="container mt-5 fluid">
 
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-3">
 				<%@ include file = "painel-usuario.jsp" %>
 				<%@ include file = "menu.html" %>
 			</div>
 
-			<div class="col-md-8">
+	
+			<div class="col-md-9">
 				<div class="card">
 					<div class="card-header bg-info text-white">
 						<h5>Bem-vindo</h5>
 					</div>
 					
-					<div class="card-body">
-						<div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-  					<div class="card-header">Header</div>
+					<% for (Compromisso c : compromisso){ %>
+					<div class="card-deck" >
+					
+						<div class="card text-white bg-primary mb-3 mt-3 ml-4 mr-4" style="max-width: 15rem;">
+  					<div class="card-header"><%= c.getData() %></div>
   					<div class="card-body">
-   					 <h5 class="card-title">Colocar aqui a data</h5>
-   					 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+   					 <h5 class="card-title"><%= c.getTitulo() %></h5>
+   					 <p class="card-text"><%= c.getDescricao() %></p>
   					</div>
 					</div>
+					
+						
+					<% } %>	
+					<!-- <div class="card-footer"></div> -->
 					</div>
-
-					<div class="card-footer"></div>
-				
 				</div>
+					
 			</div>
 		</div>
 
