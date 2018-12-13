@@ -4,6 +4,7 @@
 	<%@ page import="br.senai.sp.cfp127.model.Usuario" %>
 	<%@ page import="br.senai.sp.cfp127.model.Compromisso" %>
 	<%@ page import="br.senai.sp.cfp127.dao.CompromissoDao" %>
+	<%@page import="br.senai.sp.cfp127.util.FormataData"%>
 	<%@page import="java.util.ArrayList"%>
 	<% 
 	
@@ -64,7 +65,7 @@
 					<div class="card-deck" >
 					
 						<div class="card text-white bg-primary mb-3 mt-3 ml-4 mr-4" style="max-width: 15rem;">
-  					<div class="card-header"><%= c.getData() %></div>
+  					<div class="card-header"><%= FormataData.dataPt(c.getData())  %></div>
   					<div class="card-body">
    					 <h5 class="card-title"><%= c.getTitulo() %></h5>
    					 <p class="card-text"><%= c.getDescricao() %></p>
